@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>db Tables</title>
 </head>
 <body>
-    <h1>Hello Sasa</h1>
-    <h2>Hello World!</h2>
-    <h3>{{$viewName}}</h3>
+    <h1>Table here</h1>
 </body>
 </html>

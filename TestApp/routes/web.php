@@ -8,5 +8,11 @@ Route::get('/', function () {
 
 Route::get('/home', function()
 {
-    return view('home');
+    $viewName = 'home';
+    return view($viewName, compact('viewName'));
+});
+
+Route::get('/tables', function()
+{
+    return view('tables');
 });
