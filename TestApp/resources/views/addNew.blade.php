@@ -9,15 +9,14 @@
 
 </style>
 <body>
-    <form action="/addNew" method="post">   
+    <form action="{{ route('news.store') }}" method="post">   
         <input type="hidden" name="_token" value="token_value">
-        <label for="summary">Summary: </label>
-        <input type="text" id="summary" name="summary" required>
-        <label for="short_description">Description: </label>
-        <textarea name="short_description" id="short_description" required></textarea>
-        <label for="full_text">Full Text: </label>
-        <textarea name="full_text" id="full_text" required></textarea>
-        <button type="submit">Add</button>
+        <label for="header">Header (max 50 characters): </label>
+        <input type="text" id="header" name="header" value="{{ old('header') }}" required maxlength="50"><br>
+        <label for="short_text">Short Text (max 150 characters): </label>
+        <input type="text" id="short_text" name="short_text" value="{{ old('short_text') }}" required maxlength="150"><br>
+        <label for="article">Article (max 5000 characters): </label>
+        <textarea id="article" name="article" required maxlength="5000">{{ old('article') }}</textarea><br>
     </form>
 </body>
 </html>

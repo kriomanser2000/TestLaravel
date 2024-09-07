@@ -18,9 +18,9 @@ Route::get('/tables', function()
     return view('tables');
 });
 
-Route::get('/addNew', [NewsController::class, 'create']);
+Route::get('/addNew', [NewsController::class, 'create'])->name('news.create');
 
-Route::post('/addNew', [NewsController::class, 'store']);
+Route::post('/addNew', [NewsController::class, 'store'])->name('news.store');
 
 Route::get('/tables', function()
 {
