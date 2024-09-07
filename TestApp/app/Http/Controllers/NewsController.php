@@ -18,7 +18,11 @@ class NewsController extends Controller
             'short_description' => 'required',
             'full_text' => 'required',
         ]);
-        News::create($validated);
-        return redirect('/');
+        News::create([
+            'summary' => $request->input('summary'),
+            'short_description' => $request->input('short_description'),
+            'full_text' => $request->input('full_text'),
+        ]);
+        return redirect('/tables');
     }
 }

@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add News in Table</title>
 </head>
+<style>
+
+</style>
 <body>
-    <form action="/addNew" method="post">
-        @csrf
+    <form action="/addNew" method="post">   
+        <input type="hidden" name="_token" value="token_value">
         <label for="summary">Summary: </label>
         <input type="text" id="summary" name="summary" required>
         <label for="short_description">Description: </label>

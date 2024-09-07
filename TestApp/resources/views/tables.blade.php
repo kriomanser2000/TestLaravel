@@ -7,6 +7,21 @@
 </head>
 <body>
     <h1>Table here</h1>
-    <h2>we dond need dis page. use addNew.blade///</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Summary</th>
+            <th>Short Desription</th>
+            <th>Full Text</th>
+        </tr>
+        @foreach($news as $item)
+        <tr>
+            <td>{{ $item->id }}</td>    
+            <td>{{ $item->summary }}</td>
+            <td>{{ $item->short_description }}</td>
+            <td>{{ $item->full_text }}</td>
+        </tr>
+        @endforeach
+    </table>
 </body>
 </html>

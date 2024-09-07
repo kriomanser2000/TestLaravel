@@ -21,3 +21,9 @@ Route::get('/tables', function()
 Route::get('/addNew', [NewsController::class, 'create']);
 
 Route::post('/addNew', [NewsController::class, 'store']);
+
+Route::get('/tables', function()
+{
+    $news = \App\Models\News::all();
+    return view('tables', ['news' => $news]);
+});
