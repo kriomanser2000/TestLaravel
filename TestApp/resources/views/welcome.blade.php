@@ -9,5 +9,17 @@
     <a href="{{ route('news.create') }}">
         <button>Add New</button>
     </a>
+    @if($news->isEmpty())
+        <p>No news available.</p>
+    @else
+        <ul>
+            @foreach ($news as $item)
+                <li>
+                    <h3>{{ $item->header }}</h3>
+                    <p>{{ $item->short_text }}</p>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </body>
 </html>

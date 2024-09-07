@@ -25,6 +25,8 @@ Route::post('/addNew', [NewsController::class, 'store'])->name('news.store');
 
 Route::get('/addNew', [NewController::class, 'create'])->name('news.create');
 
+Route::get('/', [NewController::class, 'index'])->name('news.index');
+
 Route::get('/tables', function()
 {
     $news = \App\Models\News::all();
