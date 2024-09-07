@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Table here</h1>
-    
+    <h2>we dond need dis page. use addNew.blade///</h2>
 </body>
 </html>
