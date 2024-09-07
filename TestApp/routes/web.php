@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,8 @@ Route::get('/tables', function()
 Route::get('/addNew', [NewsController::class, 'create'])->name('news.create');
 
 Route::post('/addNew', [NewsController::class, 'store'])->name('news.store');
+
+Route::get('/addNew', [NewController::class, 'create'])->name('news.create');
 
 Route::get('/tables', function()
 {
