@@ -15,8 +15,10 @@
         <ul>
             @foreach ($news as $item)
                 <li>
-                    <h3>{{ $item->header }}</h3>
-                    <p>{{ $item->short_text }}</p>
+                    <a href="{{ route('news.show', $item->id) }}">
+                        <h3>{{ $item->header }}</h3>
+                        <p>{{ $item->short_text }}</p>
+                    </a>
                 </li>
             @endforeach
         </ul>

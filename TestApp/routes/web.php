@@ -27,6 +27,12 @@ Route::get('/addNew', [NewController::class, 'create'])->name('news.create');
 
 Route::get('/', [NewController::class, 'index'])->name('news.index');
 
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
+Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
+
+Route::post('/news/{id}/update', [NewsController::class, 'update'])->name('news.update');
+
 Route::get('/tables', function()
 {
     $news = \App\Models\News::all();
