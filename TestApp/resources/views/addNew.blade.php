@@ -9,16 +9,16 @@
 
 </style>
 <body>
-    <form action="/addNew" method="post" enctype="multipart/form-data">
+    <form action="{{ isset($news) ? route('news.update', $news->id) : '/addNew' }}" method="post" enctype="multipart/form-data">
         <label for="summary">Summary: </label>
-        <input type="text" id="summary" name="summary" required>
+        <input type="text" id="summary" name="summary" value="{{ $news->summary ?? '' }}" required>
         <label for="short_description">Description: </label>
-        <textarea name="short_description" id="short_description" required></textarea>
+        <textarea name="short_description" id="short_description" required>{{ $news->short_description ?? '' }}</textarea>
         <label for="full_text">Full Text: </label>
-        <textarea name="full_text" id="full_text" required></textarea>
+        <textarea name="full_text" id="full_text" required>{{ $news->full_text ?? '' }}</textarea>
         <label for="image">Upload Image: </label>
         <input type="file" id="image" name="image" accept="image/*">
-        <button type="submit">Add</button>
+        <button type="submit">{{ isset($news) ? 'Update' : 'Add' }}</button>
     </form>
 </body>
 </html>
