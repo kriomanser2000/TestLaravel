@@ -9,12 +9,15 @@
 
 </style>
 <body>
-    <form action="{{ route('news.store') }}" method="post">   
-        <input type="text" id="header" name="header" required maxlength="50"><br>
-        <label for="short_text">Short Text: </label>
-        <input type="text" id="short_text" name="short_text" required maxlength="150"><br>
-        <label for="article">Article: </label>
-        <textarea id="article" name="article" required maxlength="5000"></textarea><br>
+    <form action="/addNew" method="post" enctype="multipart/form-data">
+        <label for="summary">Summary: </label>
+        <input type="text" id="summary" name="summary" required>
+        <label for="short_description">Description: </label>
+        <textarea name="short_description" id="short_description" required></textarea>
+        <label for="full_text">Full Text: </label>
+        <textarea name="full_text" id="full_text" required></textarea>
+        <label for="image">Upload Image: </label>
+        <input type="file" id="image" name="image" accept="image/*">
         <button type="submit">Add</button>
     </form>
 </body>
