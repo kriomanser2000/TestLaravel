@@ -33,6 +33,9 @@ Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit'
 
 Route::post('/news/{id}/update', [NewsController::class, 'update'])->name('news.update');
 
+Route::post('/news/{id}/comment', [NewController::class, 'addComment'])->name('addComment');
+
+
 Route::get('/tables', function()
 {
     $news = \App\Models\News::all();

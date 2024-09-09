@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB; 
 
-return new class extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,9 +16,11 @@ return new class extends Migration
         {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_news');
             $table->text('comment');
-            $table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_news')->references('id')->on('news')->onDelete('cascade');
         });
     }
 
