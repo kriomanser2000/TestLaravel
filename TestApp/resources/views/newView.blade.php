@@ -36,34 +36,38 @@
         @endif
     </div>
     <script>
-        $('#commentForm').on('submit', function(e) 
+        $(document).ready(function() 
         {
-            e.preventDefault();
-            var comment = $('#commentText').val();
-            var newsId = {{ $news->id }};
-            $.ajax({
-                url: "{{ route('addComment', $news->id) }}",
-                method: 'POST',
-                data: 
-                {
-                    _token: $('input[name="_token"]').val(),
-                    comment: comment
-                },
-                success: function(response) 
-                {
-                    $('#commentsSection').append(
-                        '<div class="comment">' +
-                        '<strong>' + response.user_name + '</strong>' +
-                        '<p>' + response.comment + '</p>' +
-                        '<small>' + response.created_at + '</small>' +
-                        '</div>'
-                    );
-                    $('#commentText').val('');
-                },
-                error: function(xhr) 
-                {
-                    alert('Something went wrong. Please try again.');
-                }
+            $('#commentForm').on('submit', function(e) 
+            {
+                e.preventDefault();
+                var comment = $('#commentText').val();
+                var newsId = {{ $news->id }};
+                $.ajax({
+                    url: "{{ route('addComment', $news->id) }}",
+                    method: 'POST',
+                    data: 
+                    {
+                        _token: $('input[name="_token"]').val(),
+                        comment: comment,
+                        news_id: newsId
+                    },
+                    success: function(response) 
+                    {
+                        $('#commentsSection').append(
+                            '<div class="comment">' +
+                            '<strong>' + response.user_name + '</strong>' +
+                            '<p>' + response.comment + '</p>' +
+                            '<small>' + response.created_at + '</small>' +
+                            '</div>'
+                        );
+                        $('#commentText').val('');
+                    },
+                    error: function(xhr) 
+                    {
+                        alert('Something went wrong. Please try again.');
+                    }
+                });
             });
         });
     </script>

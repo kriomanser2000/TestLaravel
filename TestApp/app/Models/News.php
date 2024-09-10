@@ -11,4 +11,8 @@ class News extends Model
     //protected $fillable = ['summary', 'short_description', 'full_text'];
     protected $table = 'news';
     protected $fillable = ['header', 'short_text', 'article'];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

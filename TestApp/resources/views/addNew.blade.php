@@ -18,6 +18,11 @@
         <textarea name="full_text" id="full_text" required>{{ $news->full_text ?? '' }}</textarea>
         <label for="image">Upload Image: </label>
         <input type="file" id="image" name="image" accept="image/*">
+        <select name="category_id" required>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
         <button type="submit">{{ isset($news) ? 'Update' : 'Add' }}</button>
     </form>
 </body>
